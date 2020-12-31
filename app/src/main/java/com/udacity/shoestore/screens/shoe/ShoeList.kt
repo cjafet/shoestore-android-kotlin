@@ -30,8 +30,10 @@ class ShoeList : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val binding = DataBindingUtil.inflate<FragmentShoeListBinding>(
-                inflater, R.layout.fragment_shoe_list, container, false)
+//        val binding = DataBindingUtil.inflate<FragmentShoeListBinding>(
+//                inflater, R.layout.fragment_shoe_list, container, false)
+
+        val binding = FragmentShoeListBinding.inflate(inflater, container, false)
 
         binding.floatingActionButton.setOnClickListener { view: View ->
             view.findNavController().navigate(ShoeListDirections.actionShoeListToShoeDetail())
