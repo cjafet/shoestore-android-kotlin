@@ -7,11 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeDetailBinding
-import com.udacity.shoestore.databinding.FragmentShoeListBinding
-import com.udacity.shoestore.models.Shoe
 
 class ShoeDetail : Fragment() {
     private val viewModel: ShoeViewModel by activityViewModels()
@@ -28,14 +27,18 @@ class ShoeDetail : Fragment() {
         // Inflate the layout for this fragment
         val binding = DataBindingUtil.inflate<FragmentShoeDetailBinding>(
             inflater, R.layout.fragment_shoe_detail, container, false)
-        //return inflater.inflate(R.layout.fragment_shoe_detail, container, false)
 
+        binding.lifecycleOwner = this
+        binding.shoeViewModel = viewModel
+        binding.shoe = viewModel._shoe
 
-        binding.saveShoe.setOnClickListener { view: View ->
-            val size: String = binding.shoeSize.text.toString()
-            viewModel.allShoes.add(Shoe(binding.shoeName.text.toString(), size.toDouble(), binding.companyName.text.toString(), binding.shoeDescription.text.toString(), listOf("R.drawable.rhinestones")))
-            view.findNavController().navigate(R.id.action_shoeDetail_to_shoeList2)
-        }
+        viewModel.shouldNavigate.observe(viewLifecycleOwner, Observer { shouldNavigate ->
+            if (shouldNavigate) {
+                binding.root.findNavController().navigate(R.id.action_shoeDetail_to_shoeList2)
+                viewModel.setNavigation(false)
+            }
+        })
+
 
         binding.cancelButton.setOnClickListener { view: View ->
             view.findNavController().navigate(R.id.action_shoeDetail_to_shoeList2)

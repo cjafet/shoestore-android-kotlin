@@ -55,9 +55,6 @@ class ShoeList : Fragment() {
             }
         })
 
-        // Inflate the layout for this fragment
-        //return inflater.inflate(R.layout.fragment_shoe_list, container, false)
-
         setHasOptionsMenu(true)
 
         return binding.root
