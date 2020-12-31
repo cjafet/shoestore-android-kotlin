@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">ShoeStore</string>
+    <string name="email_label">Enter your email</string>
+    <string name="password_label">Enter your password</string>
+    <string name="view_shoes">View Shoes</string>
+    <string name="login">Login</string>
+    <string name="hint_your_email">Your email</string>
+    <string name="hint_your_password">Your password</string>
+    <string name="text_register_button">Register</string>
+    <string name="text_login_button">Login</string>
+    <string name="title_welcome">Welcome</string>
+    <string name="description_welcome">A simple app that allow you to add new shoes to your collection. Just click the plus button and have fun!</string>
+    <string name="button_welcome">Get on board</string>
+    <string name="title_instructions">Instructions</string>
+    <string name="description_instructions">To save new shoes to your collection just click the circle plus button and add as many as you like!</string>
+    <string name="title_name">Name</string>
+    <string name="title_company">Company</string>
+    <string name="title_size">Size</string>
+    <string name="title_description">Description</string>
+    <string name="button_cancel">CANCEL</string>
+    <string name="button_save">SAVE</string>
+</resources>
